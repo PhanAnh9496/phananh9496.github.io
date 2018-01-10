@@ -1,0 +1,207 @@
+* {
+	padding: 0;
+	margin: 0;
+}
+html, body {
+	width: 100%;
+	height: 100%;
+	overflow-x: hidden;
+}
+.slide__wrapper {
+	position: relative;
+	height: 100%;
+	width: 100%;
+	overflow: hidden;
+}
+/* ----------- Content__slide ----------- */
+.slide__content {
+	position: absolute;
+	height: 100%;
+	width: 100%;
+}
+.slide__content,
+.slide__content ul,
+.slide__content li,
+.slide-page, 
+.slide-image {
+	width: 100%;
+	height: 100%;
+}
+.slide__content ul {
+	position: relative;
+}
+.slide__content ul li {
+	list-style: none;
+	position: absolute;
+	transition: 0.4s;
+	opacity: 0;
+}
+
+.slide__content ul li.slide-active {
+    opacity: 1;
+}
+.slide__content ul li .slide-page {
+	position: relative;
+}
+.slide-page .slide-image {
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center center;
+}
+.slide-page .delta-1,
+.slide-page .delta-2,
+.slide-page .delta-3,
+.slide-page .slide-text {
+	position: absolute;
+	z-index: 1;
+	top: 0;
+	opacity: 0;
+}
+
+.slide-page .delta-1 {
+    opacity: 0;
+    top: -80%;
+}
+ul li.slide-active .slide-page img.delta-1, 
+ul li.slide-active .slide-page img.delta-2 {
+	animation: come_on 6s forwards;
+}
+@-webkit-keyframes come_on {
+	form {
+		transform: translateX(-100%) translateY(100%);
+		opacity: 0;
+	}
+	to {
+		transform: translateX(0%) translateY(0%);
+		opacity: 0.8;
+	}
+}
+ul li.slide-active .slide-page img.delta-2 {
+	animation-delay: 0.4s;
+}
+.slide-page .delta-2 {
+    opacity: 0;
+    top: -40%;
+}
+.slide-page .delta-3 {
+	opacity: 0;
+	right: 0;
+	width: 10%;
+}
+ul li.slide-active .slide-page img.delta-3 {
+	animation: come_on_two 6s forwards;
+	animation-delay: 0.6s;
+}
+@-webkit-keyframes come_on_two {
+	form {
+		transform: translateX(100%) translateY(-120%);
+		opacity: 0;
+	}
+	to {
+		transform: translateX(0%) translateY(0%);
+		opacity: 1;
+	}
+}
+.slide-page .slide-text {
+    width: 45%;
+    left: 5%;
+    top: 30%;
+    z-index:  3;
+    opacity: 1;
+    color: #fff;
+    font-family: 'Lato', sans-serif;
+}
+.slide-text h2.title {
+    font-size: 50px;
+    font-weight: normal;
+    opacity: 0;
+}
+.slide-text small {
+    font-size: 30px;
+    font-weight: 900;
+    display: block;
+    margin:  10px 0 20px 0;
+}
+.slide-text .line {
+    width: 287px;
+    height: 2px;
+    background: #ffffffb5;
+    margin: 1px 0 20px 0;
+}
+.slide-text p {
+	font-size: 13px;
+	width: 60%;
+	margin-bottom: 28px;
+}
+.slide-text a.slide-button {
+	color: #fff;
+	text-decoration: none;
+	border: 1px solid #fff;
+	padding: 8px 20px;
+	font-size: 15px;
+	cursor: pointer;
+}
+.slide-text a.slide-button:hover {
+	background-color: #fff;
+	color: #000;
+}
+ul li.slide-active .slide-text h2.title, 
+ul li.slide-active .slide-text small, 
+ul li.slide-active .slide-text .line, 
+ul li.slide-active .slide-text p, 
+ul li.slide-active .slide-text a.slide-button {
+	opacity: 0;
+}
+ul li.slide-active .slide-text h2.title, 
+ul li.slide-active .slide-text small, 
+ul li.slide-active .slide-text .line, 
+ul li.slide-active .slide-text p, 
+ul li.slide-active .slide-text a.slide-button {
+	animation: text_come_on 4s forwards;
+}
+@-webkit-keyframes text_come_on {
+	form {
+		transform: translateX(-100px);
+		opacity: 0;
+	}
+	to {
+		transform: translateX(0px);
+		opacity: 1;
+	}
+}
+ul li.slide-active .slide-text h2.title { animation-delay: 1s; }
+ul li.slide-active .slide-text small { animation-delay: 1.2s; }
+ul li.slide-active .slide-text .line { animation-delay: 1.4s; }
+ul li.slide-active .slide-text p { animation-delay: 1.6s; }
+ul li.slide-active .slide-text a.slide-button { animation-delay: 1.8s; }
+/* ----------- button__slide ----------- */
+.next__slide {
+    text-align:  center;
+    position: absolute;
+    z-index: 2;
+    left: 50%;
+    bottom: 0;
+    transform: translateX(-50%);
+}
+
+.next__slide ul {
+    display: inline;
+}
+
+.next__slide ul li {
+    display: inline-block;
+    text-indent: -9999px;
+    border: 1px solid #000;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    margin: 15px 15px;
+    transition: 0.4s;
+    cursor: pointer;
+}
+
+.next__slide ul li:hover, 
+.next__slide ul li.button-active {
+    background: #2D719E;
+    border: #BBE2E8;
+}
